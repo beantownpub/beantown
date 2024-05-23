@@ -1,4 +1,4 @@
-FROM node:18.16.0-buster-slim AS build
+FROM node:20.5.1-buster-slim AS build
 
 RUN apt-get update  && \
     apt-get install -y \
@@ -32,7 +32,7 @@ COPY . ./
 RUN npx webpack --config webpack.config.js && \
     rm -rf node_modules
 
-FROM node:18.16.0-buster-slim
+FROM node:20.5.1-buster-slim
 
 ARG aws_default_region
 ARG node_env

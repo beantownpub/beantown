@@ -1,4 +1,4 @@
-FROM node:22.6.0-bullseye-slim AS build
+FROM node:22.14.0-bullseye-slim AS build
 
 RUN apt-get update  && \
     apt-get install -y \
@@ -27,7 +27,7 @@ COPY . ./
 RUN npx webpack --config webpack.config.js && \
     rm -rf node_modules
 
-FROM node:22.6.0-bullseye-slim
+FROM node:22.14.0-bullseye-slim
 
 ARG aws_default_region
 ARG node_env

@@ -5,7 +5,7 @@ executors:
     - image: cimg/python:3.12
   node:
     docker:
-      - image: cimg/node:22.6.0
+      - image: cimg/node:22.14.0
 
 commands:
   install_k8s_dependencies:

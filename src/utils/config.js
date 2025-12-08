@@ -4,7 +4,7 @@ const config = {
     },
     "urls": {
         "googleApi": "https://maps.googleapis.com/maps/api/",
-        "static": "https://static.prod.beantownpub.com",
+        "static": "/images",
         "facebook": "https://www.facebook.com/BeantownPubMA/",
         "instagram": "https://www.instagram.com/explore/locations/392955632/beantown-pub/?hl=en",
         "twitter": "https://twitter.com/BeantownPub"

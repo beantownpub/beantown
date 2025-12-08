@@ -41,6 +41,7 @@ WORKDIR /app
 RUN --mount=type=secret,id=npmrc,target=/app/.npmrc npm ci --production --legacy-peer-deps
 #RUN npm ci --production || npm ci --production
 COPY . ./
+#COPY --from=install /app/dist/public/images /app/dist/public/images
 COPY --from=install /app/dist/public/js/main.js /app/dist/public/js/
 RUN chown -R node:node /app/dist/public/
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini

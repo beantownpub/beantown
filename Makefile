@@ -110,6 +110,13 @@ docker/prune:
 clean:
 	rm -rf node_modules/
 
+ecr/login:
+	aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${ECR_REGISTRY}
+
+ecr/push:
+	docker tag $(image_name):$(image_tag) $(ECR_REGISTRY)/$(image_name):$(image_tag)
+	docker push $(ECR_REGISTRY)/$(image_name):$(image_tag)
+
 ## Update to latest version of @the-flagrant-fowl/react-components-library
 jal/update:
 	npm i --save-dev @jalgraves/react-components-library --legacy-peer-deps

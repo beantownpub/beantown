@@ -57,7 +57,7 @@ const slideMenu = {
   },
   header: {
     fontFamily: FONTS.content,
-    imgSource: `${config.urls.static}/img/logos/beantown_script_logo.svg`
+    imgSource: `/images/script_logo.png`
   }
 }
 
@@ -70,12 +70,12 @@ topBar.render(
     hoverColor={COLORS.red}
     mainMenuBarBorderBottom={`1px solid ${COLORS.yellow}`}
     mainMenuBarBoxShadow={`2px 2px 6px ${COLORS.darkGray}`}
-    mainMenuBarImgSource={`${config.urls.static}/img/logos/beantown.svg`}
+    mainMenuBarImgSource={`/images/beantown.svg`}
     navBarLogoImgStyles={IMG_STYLES}
     pages={PAGES}
     slideMenu={slideMenu}
     slideMenuBackgroundColor={COLORS.topMenuBackground}
-    slideMenuLogoImgSource={`${config.static_url}/img/logos/thehubpub_logo.png`}
+    slideMenuLogoImgSource={`/images/script_logo.png`}
   />
 )
 

@@ -2,9 +2,9 @@ import React from "react"
 import { ContentContainer } from "../containers/index.js"
 import { ContactBeantown } from "../contact/index.js"
 import { config } from "../../utils/main.js"
-import { sendEvent } from "../kafka/index.js"
-const STATIC_PATH = `${config.urls.static}/img/slider`
-
+// import { sendEvent } from "../kafka/index.js"
+const STATIC_PATH = "/images"
+const COLORS = config.colors
 const photoStyles = {
   padding: "1rem",
   display: "flex"
@@ -47,18 +47,13 @@ const PhotoGallery = (props) => {
 
 const images = [
   "bt_pool_tables.jpeg",
-  "bt_private_event_1.jpeg",
   "bt_private_event_pt2.jpeg",
   "bt_private_event_pt4.jpeg",
-  "bt_private_event_2.jpeg",
   "elisha_brown_room.jpeg",
   "elisha_brown_room2.jpeg"
 ]
 
 export const PrivateParties = () => {
-  window.addEventListener("click", (event) => {
-    sendEvent(event)
-  })
   return (
     <ContentContainer  
       articleMargin="1rem auto"
@@ -70,7 +65,15 @@ export const PrivateParties = () => {
       or corporate events. Choose from spaces with single, multiple, or no pool tables. Our private event menu offers a variety of freshly
       prepared delicious appetizers all the way up to a full buffet with several entrees.
       </article>
-      <ContactBeantown/>
+      <ContentContainer 
+        pColor={COLORS.white}
+        maxWidth="900px"
+        pMaxWidth="700px"
+        backgroundColor={COLORS.backgroundGray}
+        borderRadius="5px"
+      >
+        <p>For more information or to make a reservation, please contact us at <a href="mailto:BeantownPubBoston@gmail.com">BeantownPubBoston@gmail.com</a> or call us at <a href="tel:6174260111">617-426-0111</a>.</p>
+      </ContentContainer>
       <PhotoGallery images={images} />
     </ContentContainer>
   )

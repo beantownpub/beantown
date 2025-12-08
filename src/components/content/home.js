@@ -3,7 +3,7 @@ import React from "react"
 import { GrubHubLink } from "./grubHub/index.js"
 import { HeroHeader } from "./heroHeader/main.js"
 import { config } from "../../utils/main.js"
-import { sendEvent } from "../kafka/index.js"
+// import { sendEvent } from "../kafka/index.js"
 import { ContentContainer, PageContainer } from "../containers/index.js"
 // import { ImageSlider } from "../imageSliders/main.js"
 const COLORS = config.colors
@@ -38,9 +38,9 @@ const SLIDER_IMAGES = [
 ]
 
 export const MainInfo = () => {
-  window.addEventListener("click", (event) => {
-    sendEvent(event)
-  })
+  // window.addEventListener("click", (event) => {
+  //   sendEvent(event)
+  // })
   return (
     <PageContainer>
       <HeroHeader 

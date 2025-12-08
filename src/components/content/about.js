@@ -1,6 +1,6 @@
 import React from "react"
 import { config } from "../../utils/main.js"
-import { sendEvent } from "../kafka/index.js"
+// import { sendEvent } from "../kafka/index.js"
 import { ContentContainer } from "../containers/index.js"
 import { GrubHubLink } from "./grubHub/index.js"
 const COLORS = config.colors
@@ -35,9 +35,9 @@ const FAQ = () => {
 }
 
 export const AboutInfo = () => {
-  window.addEventListener("click", (event) => {
-    sendEvent(event)
-  })
+  // window.addEventListener("click", (event) => {
+  //   sendEvent(event)
+  // })
   return (
     <ContentContainer margin="5% auto 1% auto">
       <ContentContainer margin="5% auto 1% auto">

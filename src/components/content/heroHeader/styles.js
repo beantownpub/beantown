@@ -10,7 +10,7 @@ margin: ${props => props.$margin || "5rem auto 0 auto"};
 width: 100%;
 height: 420px;
 display: flex;
-background-image: url(${props => `${STATIC_URL}/img/${props.image}`});
+background-image: url(${props => `${STATIC_URL}/${props.image}`});
 background-size: cover;
 background-position: center;
 h1 {

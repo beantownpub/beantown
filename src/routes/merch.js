@@ -5,20 +5,20 @@ import { cartRequest } from '../utils/axiosRequests.js'
 import { config } from '../utils/main.js'
 import { urls } from '../utils/appUrls.js'
 import * as squareUtils from '../utils/square.js'
-import * as  kafka from '../utils/kafka.js'
+//import * as  kafka from '../utils/kafka.js'
 
 const pages = config.pages
 const router = express.Router()
 
-const producer = kafka.brokers.producer()
+//const producer = kafka.brokers.producer()
 
-router.post('/event', function(req, res, next) {
-  kafka.sendToStream(producer, 'clicks', 'events', req.body)
-  res.sendStatus(200)
-})
+// router.post('/event', function(req, res, next) {
+//   kafka.sendToStream(producer, 'clicks', 'events', req.body)
+//   res.sendStatus(200)
+// })
 
 router.get('/items', function(req, res, next) {
-  kafka.sendToStream(producer, 'requests', 'reqs', req.headers)
+  //kafka.sendToStream(producer, 'requests', 'reqs', req.headers)
   const merch = pages['merch']
   res.render("main", merch.metadata)
 })

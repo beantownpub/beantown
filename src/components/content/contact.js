@@ -5,9 +5,9 @@ import { config } from "../../utils/main.js"
 const COLORS = config.colors
 
 export const ContactInfo = () => {
-  window.addEventListener("click", (event) => {
-    sendEvent(event)
-  })
+  // window.addEventListener("click", (event) => {
+  //   sendEvent(event)
+  // })
   return (
     <PageContainer>
       <ContentContainer

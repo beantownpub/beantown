@@ -1,19 +1,19 @@
 import express from 'express'
-import * as kafka from '../utils/kafka.js'
+// import * as kafka from '../utils/kafka.js'
 import { config } from '../utils/main.js'
 
 const router = express.Router()
 const pages = config.pages
-const producer = kafka.brokers.producer()
+//const producer = kafka.brokers.producer()
 
 router.use(function (req, res, next) {
   next()
 })
 
-router.post('/event', function(req, res, next) {
-  kafka.sendToStream(producer, 'clicks', 'events', req.body)
-  res.sendStatus(200)
-})
+// router.post('/event', function(req, res, next) {
+//   kafka.sendToStream(producer, 'clicks', 'events', req.body)
+//   res.sendStatus(200)
+// })
 
 router.get('/', function(req, res, next) {
   const home = pages.index

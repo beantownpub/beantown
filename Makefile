@@ -9,6 +9,7 @@ MAKE_FILES = ${MAKE_PATH}/helm/beantown/Makefile ${MAKE_PATH}/Makefile
 aws_default_region ?= ${AWS_DEFAULT_REGION}
 dockerhub ?= jalgraves
 image_name ?= beantown
+ecr_image_name ?= beantownpub
 name ?= beantown
 port ?= 3000
 version ?= $(shell jq -r .version package.json | tr -d '"')
@@ -114,8 +115,8 @@ ecr/login:
 	aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${ECR_REGISTRY}
 
 ecr/push:
-	docker tag $(image_name):$(image_tag) $(ECR_REGISTRY)/$(image_name):$(image_tag)
-	docker push $(ECR_REGISTRY)/$(image_name):$(image_tag)
+	docker tag $(image_name):$(image_tag) $(ECR_REGISTRY)/$(ecr_image_name):$(image_tag)
+	docker push $(ECR_REGISTRY)/$(ecr_image_name):$(image_tag)
 
 ## Update to latest version of @the-flagrant-fowl/react-components-library
 jal/update:

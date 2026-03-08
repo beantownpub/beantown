@@ -1,6 +1,14 @@
 import express from 'express'
 import * as axios from 'axios'
+import fs from 'fs'
+import path from 'path'
+import { fileURLToPath } from 'url'
 import { urls } from '../utils/appUrls.js'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+const LOCAL_MENU_PATH = path.join(__dirname, '../../data/menus/beantown.json')
+
 const router = express.Router()
 const API_USERNAME = process.env.API_USERNAME
 const API_PASSWORD = process.env.API_PASSWORD
@@ -18,8 +26,15 @@ async function getMenu(uri, res) {
     const response = await axios.default(OPTIONS)
     res.status(200).json({'status': 200, 'data': response.data})
   } catch (error) {
-    console.error(error)
-    res.status(500).json({'status': 599, 'message': error.message})
+    console.warn(`Menu API unavailable (${error.message}), falling back to local JSON`)
+    try {
+      const raw = fs.readFileSync(LOCAL_MENU_PATH, 'utf8')
+      const data = JSON.parse(raw)
+      res.status(200).json({'status': 200, 'data': data})
+    } catch (fileError) {
+      console.error('Failed to load local menu fallback:', fileError)
+      res.status(500).json({'status': 500, 'message': 'Menu unavailable'})
+    }
   }
 }
 

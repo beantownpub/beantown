@@ -56,6 +56,6 @@
     "styled-components": "^6.0.8",
     "universal-cookie": "^4.0.3",
     "webpack": "^5.81.0",
-    "webpack-cli": "^5.0.2"
+    "webpack-cli": "^6.0.0"
   }
 }
